@@ -3,6 +3,9 @@ package models;
 /**
  * A representation of the deck class in the Aces Up game
  */
+
+import java.util.Random;
+
 public class Deck {
     int numCards;
     Card[] cards;
@@ -33,5 +36,16 @@ public class Deck {
         for (int i = 0; i < 13; i++) {
             cards[i+39] = new Card(i+2, 'c', false);
         }
+    }
+
+    //Will take a hand and return void in future iterations
+    public Card dealCard () {
+        Random random = new Random();
+
+        int randInt = random.nextInt();
+
+        Card returnCard = cards[randInt%52];
+        returnCard.setBeenDelt(true);
+        return returnCard;
     }
 }

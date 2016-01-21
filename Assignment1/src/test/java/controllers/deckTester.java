@@ -4,6 +4,7 @@ package controllers;
  * Class for testing the Deck class
  */
 
+import models.Card;
 import models.Deck;
 import org.junit.Assert;
 import org.junit.Test;
@@ -59,6 +60,16 @@ public class deckTester {
                 Assert.assertEquals('c', testDeck.getACard(i).getSuit());
             }
         }
+    }
+
+    @Test
+    public void testDealCard () {
+        Deck testDeck = new Deck();
+        testDeck.buildDeck();
+
+        Card deltCard = testDeck.dealCard();
+
+        Assert.assertEquals(true, deltCard.isBeenDelt());
     }
 }
 
