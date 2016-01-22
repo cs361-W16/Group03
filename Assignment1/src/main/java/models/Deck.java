@@ -5,6 +5,7 @@ package models;
  */
 
 import java.util.Random;
+import models.Hand;
 
 public class Deck {
     int numCards;
@@ -39,22 +40,25 @@ public class Deck {
     }
 
     //Will take a hand and return void in future iterations
-    public Card dealCard () {
+    public void dealCard (Hand dealHand) {
         Random random = new Random();
         boolean foundCard = false;
         int randInt;
-        Card returnCard = new Card(2, 'd', false);
+        Card pushCard;
 
-        while (!foundCard) {
-            randInt = random.nextInt();
-            returnCard = cards[randInt%52];
 
-            if (!returnCard.isBeenDelt()) {
-                returnCard.setBeenDelt(true);
-                foundCard = true;
+        for (int i = 0; i < 4; i++) {
+            while (!foundCard) {
+                randInt = random.nextInt();
+                pushCard = cards[randInt % 52];
+
+                if (!pushCard.isBeenDelt()) {
+                    pushCard.setBeenDelt(true);
+                    cards[randInt%52].setBeenDelt(true);
+                    dealHand.pushNewCard(dealHand.getNumCardsStack1(), pushCard);
+                    foundCard = true;
+                }
             }
         }
-
-        return returnCard;
     }
 }

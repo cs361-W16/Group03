@@ -15,6 +15,13 @@ public class Card {
         beenDelt = startBeenDelt;
     }
 
+    public Card () {
+        value = 0;
+        suit = ' ';
+        beenDelt = false;
+
+    }
+
     public int getValue () {
         return value;
     }
