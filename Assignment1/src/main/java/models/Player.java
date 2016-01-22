@@ -36,7 +36,7 @@ public class Player {
         char currCardSuit = newHand.getTopCardSuit(playerInput);
 
         for(int i = 1; i < 5; i++){
-            if(currCardSuit == newHand.getTopCardSuit(i){
+            if(currCardSuit == newHand.getTopCardSuit(i)){
                 if(currCardValue < newHand.getTopCardValue(i)){
                     //Remove card function call here.
                 }
