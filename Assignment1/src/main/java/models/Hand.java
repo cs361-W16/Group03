@@ -23,10 +23,10 @@ public class Hand {
     // Constructor function for creating the hand (with 4 empty stack columns)
     // also sets the current number of cards in each stack to zero
     public Hand() {
-        Card[] stack1 = new Card[13];
-        Card[] stack2 = new Card[13];
-        Card[] stack3 = new Card[13];
-        Card[] stack4 = new Card[13];
+        stack1 = new Card[13];
+        stack2 = new Card[13];
+        stack3 = new Card[13];
+        stack4 = new Card[13];
 
         numCardsStack1 = 0;
         numCardsStack2 = 0;
@@ -111,25 +111,27 @@ public class Hand {
     // This function will let the player push a new card from the deck onto a specified stack
     // Parameters: ( int stackNumber, Card someCard )
     public void pushNewCard ( int stackNumber, Card someCard ) {
-        switch (stackNumber) {
-            case 1:
-                stack1[numCardsStack1] = someCard;
-                numCardsStack1++;
-                break;
-            case 2:
-                stack2[numCardsStack2] = someCard;
-                numCardsStack2++;
-                break;
-            case 3:
-                stack3[numCardsStack3] = someCard;
-                numCardsStack3++;
-                break;
-            case 4:
-                stack4[numCardsStack4] = someCard;
-                numCardsStack4++;
-                break;
-            default:
-                break;
+        if (someCard != null) {
+            switch (stackNumber) {
+                case 1:
+                    stack1[numCardsStack1] = someCard;
+                    numCardsStack1++;
+                    break;
+                case 2:
+                    stack2[numCardsStack2] = someCard;
+                    numCardsStack2++;
+                    break;
+                case 3:
+                    stack3[numCardsStack3] = someCard;
+                    numCardsStack3++;
+                    break;
+                case 4:
+                    stack4[numCardsStack4] = someCard;
+                    numCardsStack4++;
+                    break;
+                default:
+                    break;
+            }
         }
     }
 

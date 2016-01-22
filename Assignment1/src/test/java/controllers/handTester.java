@@ -27,7 +27,8 @@ public class handTester {
     public void testPushNewCard() {
         Hand handTest = new Hand();
         Card cardTest = new Card(2, 'd', false);
-        handTest.pushNewCard(1, cardTest);
+        if ((cardTest != null) && (handTest != null))
+            handTest.pushNewCard(1, cardTest);
         Assert.assertEquals(handTest.getTopCardValue(1), 2);
     }
 
@@ -35,7 +36,8 @@ public class handTester {
     public void testPopTopCard() {
         Hand handTest = new Hand();
         Card cardTest = new Card(2, 'd', false);
-        handTest.pushNewCard(1, cardTest);
+        if ((cardTest != null) && (handTest != null))
+            handTest.pushNewCard(1, cardTest);
         handTest.popTopCard(1);
         Assert.assertEquals(handTest.getTopCardValue(1), 0);
     }
