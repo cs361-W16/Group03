@@ -64,7 +64,7 @@ public class Hand {
     }
 
     // Getter function for top card's suit (of designated stack, 1-4)
-    // This function will return the value of the top card in a specified stack, 1-4
+    // This function will return the value of the top card in a specified stack; else, return NULL
     public char getTopCardSuit(int stackNumber) {
         switch (stackNumber) {
             case 1:
@@ -91,4 +91,57 @@ public class Hand {
                 return '\u0000';
         }
     }
-}
+
+    // This function will let the player push a new card from the deck onto a specified stack
+    // Parameters: ( int stackNumber, Card someCard )
+    public void pushNewCard ( int stackNumber, Card someCard ) {
+        switch (stackNumber) {
+            case 1:
+                stack1[numCardsStack1] = someCard;
+                numCardsStack1++;
+                break;
+            case 2:
+                stack2[numCardsStack2] = someCard;
+                numCardsStack2++;
+                break;
+            case 3:
+                stack3[numCardsStack3] = someCard;
+                numCardsStack3++;
+                break;
+            case 4:
+                stack4[numCardsStack4] = someCard;
+                numCardsStack4++;
+                break;
+            default:
+                break;
+        }
+    }
+
+    // This will pop the top card from a specified stack by decrementing the amount of current cards
+    public void popTopCard ( int stackNumber ) {
+        switch (stackNumber) {
+            case 1:
+                if (numCardsStack1 > 0) {
+                    numCardsStack1--;
+                    break;
+                }
+            case 2:
+                if (numCardsStack2 > 0) {
+                    numCardsStack2--;
+                    break;
+                }
+            case 3:
+                if (numCardsStack3 > 0) {
+                    numCardsStack3--;
+                    break;
+                }
+            case 4:
+                if (numCardsStack4 > 0) {
+                    numCardsStack4--;
+                    break;
+                }
+            default:
+                break;
+        }
+    }
+} // End of class HAND
