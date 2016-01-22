@@ -26,4 +26,16 @@ public class Card {
     public boolean isBeenDelt() {
         return beenDelt;
     }
+
+    public void setValue(int value) {
+        this.value = value;
+    }
+
+    public void setSuit(char suit) {
+        this.suit = suit;
+    }
+
+    public void setBeenDelt(boolean beenDelt) {
+        this.beenDelt = beenDelt;
+    }
 }

@@ -26,4 +26,25 @@ public class cardTester {
         Card cardTest = new Card(1, 'd', false);
         Assert.assertEquals(cardTest.isBeenDelt(), false);
     }
+
+    @Test
+    public void testSetCardValue () {
+        Card cardTest = new Card(2, 'd', false);
+        cardTest.setValue(3);
+        Assert.assertEquals(3, cardTest.getValue());
+    }
+
+    @Test
+    public void testSetCardSuite () {
+        Card cardTest = new Card(2, 'd', false);
+        cardTest.setSuit('s');
+        Assert.assertEquals('s', cardTest.getSuit());
+    }
+
+    @Test
+    public void testSetCardBeenDelt () {
+        Card cardTest = new Card(2, 'd', false);
+        cardTest.setBeenDelt(true);
+        Assert.assertEquals(true, cardTest.isBeenDelt());
+    }
 }
