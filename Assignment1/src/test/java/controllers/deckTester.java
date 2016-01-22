@@ -69,7 +69,9 @@ public class deckTester {
 
         Card deltCard = testDeck.dealCard();
 
-        Assert.assertEquals(true, deltCard.isBeenDelt());
+        for (int i = 0; i < 52; i++) {
+            Assert.assertEquals(true, deltCard.isBeenDelt());
+        }
     }
 }
 
