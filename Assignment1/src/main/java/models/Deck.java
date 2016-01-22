@@ -41,11 +41,20 @@ public class Deck {
     //Will take a hand and return void in future iterations
     public Card dealCard () {
         Random random = new Random();
+        boolean foundCard = false;
+        int randInt;
+        Card returnCard = new Card(2, 'd', false);
 
-        int randInt = random.nextInt();
+        while (!foundCard) {
+            randInt = random.nextInt();
+            returnCard = cards[randInt%52];
 
-        Card returnCard = cards[randInt%52];
-        returnCard.setBeenDelt(true);
+            if (!returnCard.isBeenDelt()) {
+                returnCard.setBeenDelt(true);
+                foundCard = true;
+            }
+        }
+
         return returnCard;
     }
 }
