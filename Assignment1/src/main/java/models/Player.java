@@ -11,10 +11,8 @@ import java.util.Scanner;
  */
 public class Player {
 
-    // Commented out for testing purposes.
-    /*Scanner inputReader = new Scanner(System.in);
-    System.out.println("Enter the column you wish to remove from: ");*/
-    int playerInput = 3; /*inputReader.nextInt();*/
+    // Player input simulated for testing.
+    int playerInput = 3;
 
     // Declaring new instance.
     Hand newHand = new Hand();
@@ -24,7 +22,7 @@ public class Player {
     char currCardSuit = newHand.getTopCardSuit(playerInput);
 
     // Checks if the player made a legal move.
-    public Player(){
+    public void playerMove(){
         for(int i = 1; i < 5; i++) {
             // Checks if they are the same suit.
             if (currCardSuit == newHand.getTopCardSuit(i)) {
