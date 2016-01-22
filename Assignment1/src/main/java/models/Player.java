@@ -11,42 +11,46 @@ import java.util.Scanner;
  */
 public class Player {
 
+    // Commented out for testing purposes.
+    /*Scanner inputReader = new Scanner(System.in);
+    System.out.println("Enter the column you wish to remove from: ");*/
+    int playerInput = 3; /*inputReader.nextInt();*/
+
+    // Declaring new instance.
+    Hand newHand = new Hand();
+
+    // Getting current card value and suit from Hand class.
+    int currCardValue = newHand.getTopCardValue(playerInput);
+    char currCardSuit = newHand.getTopCardSuit(playerInput);
+
+    // Checks if the player made a legal move.
     public Player(){
-        Hand newHand = new Hand();
-
-        /*int cardValueStack1, cardValueStack2, cardValueStack3, cardValueStack4;
-        char cardSuitStack1, cardSuitStack2, cardSuitStack3, cardSuitStack4;
-
-        newHand.getTopCardValue(1) = cardValueStack1;
-        newHand.getTopCardValue(2) = cardValueStack2;
-        newHand.getTopCardValue(3) = cardValueStack3;
-        newHand.getTopCardValue(4) = cardValueStack4;
-
-        newHand.getTopCardSuit(1) = cardSuitStack1;
-        newHand.getTopCardSuit(2) = cardSuitStack2;
-        newHand.getTopCardSuit(3) = cardSuitStack3;
-        newHand.getTopCardSuit(4) = cardSuitStack4;*/
-
-
-        Scanner inputReader = new Scanner(System.in);
-        System.out.println("Enter the column you wish to remove from: ");
-        int playerInput = inputReader.nextInt();
-
-        int currCardValue = newHand.getTopCardValue(playerInput);
-        char currCardSuit = newHand.getTopCardSuit(playerInput);
-
-        for(int i = 1; i < 5; i++){
-            if(currCardSuit == newHand.getTopCardSuit(i){
-                if(currCardValue < newHand.getTopCardValue(i)){
-                    //Remove card function call here.
+        for(int i = 1; i < 5; i++) {
+            // Checks if they are the same suit.
+            if (currCardSuit == newHand.getTopCardSuit(i)) {
+                // Checks if there is a card with a larger value than the one input.
+                if (currCardValue < newHand.getTopCardValue(i)) {
+                    // Removes the top card.
+                    newHand.popTopCard(playerInput);
                 }
             }
         }
-
-
-
-
-
     }
+
+    // Return playerInput.
+    public int getPlayerInput(){
+        return playerInput;
+    }
+
+    // Return currCardValue.
+    public int getCurrValue(){
+        return currCardValue;
+    }
+
+    // Return currCardSuit.
+    public int getCurrSuit(){
+        return currCardSuit;
+    }
+
 }
 
