@@ -41,4 +41,13 @@ public class handTester {
         handTest.popTopCard(1);
         Assert.assertEquals(handTest.getTopCardValue(1), 0);
     }
+
+    @Test
+    public void testGetNumCardStacks () {
+        Hand handTest = new Hand();
+        Assert.assertEquals(0, handTest.getNumCardsStack1());
+        Assert.assertEquals(0, handTest.getNumCardsStack2());
+        Assert.assertEquals(0, handTest.getNumCardsStack3());
+        Assert.assertEquals(0, handTest.getNumCardsStack4());
+    }
 }

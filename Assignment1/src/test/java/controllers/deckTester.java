@@ -6,6 +6,7 @@ package controllers;
 
 import models.Card;
 import models.Deck;
+import models.Hand;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -14,7 +15,7 @@ public class deckTester {
     @Test
     public void testNumCards () {
         Deck testDeck = new Deck();
-        Assert.assertEquals(52, testDeck.getNumCards());
+        Assert.assertEquals(0, testDeck.getNumCards());
     }
 
     @Test
@@ -38,6 +39,7 @@ public class deckTester {
         Deck testDeck = new Deck();
 
         testDeck.buildDeck ();
+        Assert.assertEquals(52, testDeck.getNumCards());
 
         for (int i = 0; i < 52; i++) {
             //check that all haven't been delt
@@ -66,12 +68,16 @@ public class deckTester {
     public void testDealCard () {
         Deck testDeck = new Deck();
         testDeck.buildDeck();
+        Hand testDealHand = new Hand();
 
-        Card deltCard = testDeck.dealCard();
+        Assert.assertEquals(52, testDeck.getNumCards());
 
-        for (int i = 0; i < 52; i++) {
-            Assert.assertEquals(true, deltCard.isBeenDelt());
-        }
+        testDeck.dealCard(testDealHand);
+
+        Assert.assertEquals(1, testDealHand.getNumCardsStack1());
+        Assert.assertEquals(1, testDealHand.getNumCardsStack2());
+        Assert.assertEquals(1, testDealHand.getNumCardsStack3());
+        Assert.assertEquals(1, testDealHand.getNumCardsStack4());
     }
 }
 

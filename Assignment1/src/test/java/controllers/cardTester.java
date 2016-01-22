@@ -10,6 +10,14 @@ import org.junit.Assert;
 
 public class cardTester {
     @Test
+    public void testEmptyCardConstructor() {
+        Card cardTest = new Card();
+        Assert.assertEquals(0, cardTest.getValue());
+        Assert.assertEquals(' ', cardTest.getSuit());
+        Assert.assertEquals(false, cardTest.isBeenDelt());
+    }
+
+    @Test
     public void testCardValue () {
         Card cardTest = new Card(1, 'd', false);
         Assert.assertEquals(cardTest.getValue(), 1);
