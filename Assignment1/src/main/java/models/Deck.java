@@ -12,7 +12,7 @@ public class Deck {
     Card[] cards;
 
     public Deck () {
-        numCards = 52;
+        numCards = 0;
         cards = new Card[52];
     }
 
@@ -25,16 +25,21 @@ public class Deck {
     }
 
     public void buildDeck () {
+
         for (int i = 0; i < 13; i++) {
+            numCards++;
             cards[i] = new Card(i+2, 'd', false);
         }
         for (int i = 0; i < 13; i++) {
+            numCards++;
             cards[i+13] = new Card(i+2, 'h', false);
         }
         for (int i = 0; i < 13; i++) {
+            numCards++;
             cards[i+26] = new Card(i+2, 's', false);
         }
         for (int i = 0; i < 13; i++) {
+            numCards++;
             cards[i+39] = new Card(i+2, 'c', false);
         }
     }
@@ -42,23 +47,45 @@ public class Deck {
     //Will take a hand and return void in future iterations
     public void dealCard (Hand dealHand) {
         Random random = new Random();
-        boolean foundCard = false;
+        boolean foundCard;
         int randInt;
-        Card pushCard;
 
 
         for (int i = 0; i < 4; i++) {
-            while (!foundCard) {
-                randInt = random.nextInt();
-                pushCard = cards[randInt % 52];
+            foundCard = false;
 
-                if (!pushCard.isBeenDelt()) {
-                    pushCard.setBeenDelt(true);
-                    cards[randInt%52].setBeenDelt(true);
-                    dealHand.pushNewCard(dealHand.getNumCardsStack1(), pushCard);
+            while (!foundCard) {
+
+                randInt = random.nextInt();
+                randInt = Math.abs(randInt);
+                randInt = randInt%52;
+
+                if (!cards[randInt].isBeenDelt()) {
+                    //set these to true so cards aren't re-dealt
+                    cards[randInt].setBeenDelt(true);
+
+                    //set to true so loop ends
                     foundCard = true;
+
+                    //deal the card to the correct stack
+                    dealHelper(i, dealHand, cards[randInt]);
                 }
             }
+        }
+    }
+
+    private void dealHelper(int numDelt, Hand dealHand, Card dealCard) {
+        if (numDelt == 0) {
+            dealHand.pushNewCard(1, dealCard);
+        }
+        if (numDelt == 1) {
+            dealHand.pushNewCard(2, dealCard);
+        }
+        if (numDelt == 2) {
+            dealHand.pushNewCard(3, dealCard);
+        }
+        if (numDelt == 3) {
+            dealHand.pushNewCard(4, dealCard);
         }
     }
 }
