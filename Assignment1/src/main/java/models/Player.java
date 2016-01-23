@@ -2,6 +2,7 @@ package models;
 
 import models.Deck;
 import models.Hand;
+import models.Card;
 
 import java.util.Scanner;
 
@@ -11,11 +12,14 @@ import java.util.Scanner;
  */
 public class Player {
 
-    // Player input simulated for testing.
-    int playerInput = 3;
+    Hand newHand;
 
-    // Declaring new instance.
-    Hand newHand = new Hand();
+    public Player(){
+        newHand = new Hand();
+    }
+
+    // Player input simulated for testing.
+    int playerInput = 1;
 
     // Getting current card value and suit from Hand class.
     int currCardValue = newHand.getTopCardValue(playerInput);
@@ -50,5 +54,8 @@ public class Player {
         return currCardSuit;
     }
 
-
+    // Return newHand.
+    public Hand getNewHand(){
+        return newHand;
+    }
 }
