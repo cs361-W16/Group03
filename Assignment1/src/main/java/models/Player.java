@@ -11,8 +11,6 @@ import java.util.Scanner;
  */
 public class Player {
 
-    public Player(){
-        Hand newHand = new Hand();
 
         /*int cardValueStack1, cardValueStack2, cardValueStack3, cardValueStack4;
         char cardSuitStack1, cardSuitStack2, cardSuitStack3, cardSuitStack4;
@@ -28,7 +26,7 @@ public class Player {
         newHand.getTopCardSuit(4) = cardSuitStack4;*/
 
 
-        Scanner inputReader = new Scanner(System.in);
+        /*Scanner inputReader = new Scanner(System.in);
         System.out.println("Enter the column you wish to remove from: ");
         int playerInput = inputReader.nextInt();
 
@@ -41,12 +39,12 @@ public class Player {
                     //Remove card function call here.
                 }
             }
-        }
+        }*/
 
 
 
 
 
     }
-}
+
 

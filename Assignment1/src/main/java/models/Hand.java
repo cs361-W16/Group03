@@ -10,10 +10,10 @@ package models;
 import models.Card;
 
 public class Hand {
-    Card[] stack1;
-    Card[] stack2;
-    Card[] stack3;
-    Card[] stack4;
+    public Card[] stack1;
+    public Card[] stack2;
+    public Card[] stack3;
+    public Card[] stack4;
 
     int numCardsStack1;
     int numCardsStack2;
