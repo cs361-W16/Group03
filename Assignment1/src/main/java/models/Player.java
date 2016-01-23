@@ -29,7 +29,7 @@ public class Player {
                 // Checks if there is a card with a larger value than the one input.
                 if (currCardValue < newHand.getTopCardValue(i)) {
                     // Removes the top card.
-                    //newHand.popTopCard(playerInput);
+                    newHand.popTopCard(playerInput);
                 }
             }
         }
