@@ -11,50 +11,48 @@ import models.Card;
  */
 public class Player {
 
-    Hand newHand;
+    Hand hand;
 
     public Player(){
-        newHand = new Hand();
+         hand = new Hand();
     }
 
-    // Player input simulated for testing.
-    int playerInput = 1;
+    // Return hand.
+    public Hand getHand(){
+        return  hand;
+    }
 
-    // Getting current card value and suit from Hand class.
-    int currCardValue = newHand.getTopCardValue(playerInput);
-    char currCardSuit = newHand.getTopCardSuit(playerInput);
-
-    // Checks if the player made a legal move.
-    public void playerMove(){
-        for(int i = 1; i < 5; i++) {
-            // Checks if they are the same suit.
-            if (currCardSuit == newHand.getTopCardSuit(i)) {
-                // Checks if there is a card with a larger value than the one input.
-                if (currCardValue < newHand.getTopCardValue(i)) {
-                    // Removes the top card.
-                    newHand.popTopCard(playerInput);
+    /**
+     * This method makes a move to the player's hand. If there is an empty space
+     * this method moves the card from the specified stack to the empty space.
+     * Otherwise the method tries to remove a card matching the suit of
+     * the card on the specified stack, or the card from the stack depending
+     * on which is lower.
+     *
+     * @param moveStack the stack which you are trying to make a move with
+     * @return true if a move was made, false if one was not
+     */
+    public boolean makeMove (int moveStack) {
+        for (int i = 1; i < 5; i++) {
+            if (i != moveStack) {
+                if (hand.getTopCardValue(i) == 0) {
+                    hand.pushNewCard(i, hand.getCardFromStack(moveStack));
+                    hand.popTopCard(moveStack);
+                    return true;
+                }
+                else if (hand.getTopCardSuit(i) == hand.getTopCardSuit(moveStack)) {
+                    if (hand.getTopCardValue(i) < hand.getTopCardValue(moveStack)) {
+                        hand.popTopCard(i);
+                        return true;
+                    }
+                    else {
+                        hand.popTopCard(moveStack);
+                        return true;
+                    }
                 }
             }
         }
+        return false;
     }
 
-    // Return playerInput.
-    public int getPlayerInput(){
-        return playerInput;
-    }
-
-    // Return currCardValue.
-    public int getCurrValue(){
-        return currCardValue;
-    }
-
-    // Return currCardSuit.
-    public int getCurrSuit(){
-        return currCardSuit;
-    }
-
-    // Return newHand.
-    public Hand getNewHand(){
-        return newHand;
-    }
 }
