@@ -50,6 +50,21 @@ public class Hand {
         return numCardsStack4;
     }
 
+    public Card getCardFromStack (int stack) {
+        if (stack == 1) {
+            return stack1[numCardsStack1-1];
+        }
+        else if (stack == 2) {
+            return stack2[numCardsStack2-1];
+        }
+        else if (stack == 3) {
+            return stack3[numCardsStack3-1];
+        }
+        else {
+            return stack4[numCardsStack4-1];
+        }
+    }
+
     // Getter function for top card's value (of designated stack, 1-4)
     // This function will return the value of the top card in a specified stack, 1-4
     public int getTopCardValue(int stackNumber) {
