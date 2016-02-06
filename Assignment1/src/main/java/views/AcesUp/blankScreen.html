@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="blankScreen.css" rel="stylesheet">
+    <title>Aces Up!</title>
+</head>
+<body>
+    <h1>Aces Up</h1>
+    <p>Welcome to Aces Up. To start playing, click on the Start Game button. If you have any questions, try clicking either the Instructions or Rules button.</p>
+    <button id="instruct" type="button" onclick="instructionFunction()">Instructions</button>
+    <button id="rules" type="button" onclick="rulesFunction()">Rules</button>
+    <button id="startGame" type="button">Start Game!</button>
+
+    <p id="demo"></p>
+
+    <script type="text/javascript">
+        document.getElementById("startGame").onclick = function () {
+            location.href = "AcesUp.flt.html";
+        }
+        function instructionFunction(){
+            document.getElementById("demo").innerHTML = "Instructions: You should follow these directions...";
+        }
+        function rulesFunction(){
+            document.getElementById("demo").innerHTML = "Rules: These are the rules for the game...";
+        }
+    </script>
+
+</body>
+</html>
