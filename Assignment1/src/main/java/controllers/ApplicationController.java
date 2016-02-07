@@ -16,6 +16,12 @@
 
 package controllers;
 
+import models.Deck;
+import models.Card;
+import models.Player;
+import models.acesUp;
+import models.Hand;
+import ninja.Context;
 import ninja.Result;
 import ninja.Results;
 
@@ -31,6 +37,19 @@ public class ApplicationController {
 
     public Result acesUp() {
         return Results.html().template("views/AcesUp/AcesUp.flt.html");
+    }
+
+    public Result dealCard (Context context, acesUp gamestate) {
+        gamestate.dealToPlayer();
+
+        return Results.json().render(gamestate);
+    }
+
+    public Result initializeGame (Context context) {
+        acesUp gamestate = new acesUp();
+        gamestate.dealToPlayer();
+
+        return Results.json().render(gamestate);
     }
 
 }

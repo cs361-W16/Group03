@@ -1,5 +1,8 @@
 package models;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * Representation for the Aces Up card
  */
@@ -8,6 +11,12 @@ public class Card {
     int value;
     char suit;
     boolean beenDelt;
+
+    @JsonCreator
+    public Card(@JsonProperty("value") int value, @JsonProperty("suit") char suit) {
+        this.value = value;
+        this.suit = suit;
+    }
 
     public Card (int startValue, char startSuit, boolean startBeenDelt) {
         value = startValue;

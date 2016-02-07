@@ -1,8 +1,4 @@
 package models;
-import models.Hand;
-import models.Player;
-import models.Deck;
-import models.Card;
 
 
 /**
@@ -26,8 +22,9 @@ public class acesUp {
         return player;
     }
 
-    public void dealToPlayer () {
+    public Hand dealToPlayer () {
         gameDeck.dealCard(player.getHand());
+        return null;
     }
 
     public void gameMove (int stackToMove) {
